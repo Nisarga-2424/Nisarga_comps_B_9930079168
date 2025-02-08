@@ -1,0 +1,88 @@
+{
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f4f4;
+}
+
+.container {
+    width: 350px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bar */
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.progress-bar .step {
+    width: 30%;
+    height: 5px;
+    background: #ddd;
+    transition: background 0.3s ease;
+}
+
+/* Hide radio buttons */
+input[type="radio"] {
+    display: none;
+}
+
+/* Steps */
+.form-step {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Show the correct step */
+#step1:checked ~ .form-container #user-info,
+#step2:checked ~ .form-container #preferences,
+#step3:checked ~ .form-container #submit {
+    display: block;
+}
+
+/* Progress Bar Update */
+#step1:checked ~ .progress-bar .step:nth-child(1),
+#step2:checked ~ .progress-bar .step:nth-child(-n+2),
+#step3:checked ~ .progress-bar .step:nth-child(-n+3) {
+    background: #4CAF50;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+label, button {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+}
+
+label:hover, button:hover {
+    background: #45a049;
+}
