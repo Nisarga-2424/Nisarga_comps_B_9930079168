@@ -1,6 +1,7 @@
-{
+/* General Styles */
+* {
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -10,15 +11,30 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #f4f4f4;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
 }
 
+/* Glassmorphic Container */
 .container {
-    width: 350px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Title */
+h1 {
+    font-size: 24px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 20px;
 }
 
 /* Progress Bar */
@@ -31,8 +47,9 @@ body {
 .progress-bar .step {
     width: 30%;
     height: 5px;
-    background: #ddd;
-    transition: background 0.3s ease;
+    background: #444;
+    transition: background 0.5s ease-in-out;
+    border-radius: 5px;
 }
 
 /* Hide radio buttons */
@@ -43,19 +60,19 @@ input[type="radio"] {
 /* Steps */
 .form-step {
     display: none;
-    animation: fadeIn 0.5s ease-in-out;
+    animation: fadeInUp 0.6s ease-in-out;
 }
 
 /* Fade-in Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Show the correct step */
-#step1:checked ~ .form-container #user-info,
-#step2:checked ~ .form-container #preferences,
-#step3:checked ~ .form-container #submit {
+/* Show correct step */
+#step1:checked ~ .form-container .form-step:nth-child(1),
+#step2:checked ~ .form-container .form-step:nth-child(2),
+#step3:checked ~ .form-container .form-step:nth-child(3) {
     display: block;
 }
 
@@ -63,7 +80,24 @@ input[type="radio"] {
 #step1:checked ~ .progress-bar .step:nth-child(1),
 #step2:checked ~ .progress-bar .step:nth-child(-n+2),
 #step3:checked ~ .progress-bar .step:nth-child(-n+3) {
-    background: #4CAF50;
+    background: #00e676;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* Buttons */
@@ -74,15 +108,25 @@ input[type="radio"] {
 }
 
 label, button {
-    background: #4CAF50;
+    background: #00e676;
     color: white;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px 18px;
+    border-radius: 8px;
     cursor: pointer;
     text-align: center;
     border: none;
+    font-size: 14px;
+    transition: background 0.3s;
 }
 
 label:hover, button:hover {
-    background: #45a049;
+    background: #00c853;
+}
+
+.back {
+    background: #555;
+}
+
+.back:hover {
+    background: #777;
 }
